@@ -6,7 +6,7 @@ This model is tested on Gazebo 9, so it is assumed that Gazebo simulator is alre
 
 ## Installation
 Git clone the repository & place the directories in your workspace (E.g. catkin_ws).
-Compile the workspace (catkin_make) and packages should be compiled.
+Compile the workspace (catkin_make) and the packages should be ready to use.
 
 ## Usage
 ``` Coming soon! ```
