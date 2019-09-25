@@ -195,6 +195,41 @@
     </sensor>
   </gazebo>
 
+  <!--LCD Display -->
+  <gazebo reference="display_screen_link">
+    <material>Gazebo/Black</material>
+
+  <visual>
+    <plugin name="display_video_controller" filename="libgazebo_ros_video.so">
+      <topicName>/lcd_img</topicName>
+      <height>1280</height>
+      <width>720</width>
+    </plugin>
+  </visual>
+</gazebo>
+
+<!--IMU-->
+<gazebo reference="imu_link">
+  <material>Gazebo/Blue</material>
+   <gravity>true</gravity>
+   <sensor name="imu_sensor" type="imu">
+     <always_on>true</always_on>
+     <update_rate>100</update_rate>
+     <visualize>true</visualize>
+     <topic>imu_main</topic>
+     <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+       <topicName>imu</topicName>
+       <bodyName>imu_link</bodyName>
+       <updateRateHZ>10.0</updateRateHZ>
+       <gaussianNoise>0.0</gaussianNoise>
+       <xyzOffset>0 0 0</xyzOffset>
+       <rpyOffset>0 0 0</rpyOffset>
+       <frameName>imu_link</frameName>
+     </plugin>
+     <pose>0 0 0 0 0 0</pose>
+   </sensor>
+ </gazebo>
+
   <!-- hokuyo -->
   <!--gazebo reference="hokuyo">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">

@@ -508,7 +508,7 @@
 
         <joint name="camera_joint" type="fixed">
           <axis xyz="0 1 0" />
-          <origin xyz=".2 0 0" rpy="0 0 0"/>
+          <origin xyz="-.27 0 0.2" rpy="0 0 0"/>
           <parent link="chassis"/>
           <child link="camera"/>
         </joint>
@@ -542,7 +542,7 @@
 
         <joint name="joint_dcam_back" type="fixed">
           <axis xyz="0 1 0" />
-          <origin xyz="-.27 0 0.2" rpy="0 0 3.1416"/>
+          <origin xyz=".27 0 0.32" rpy="0 0 0"/>
           <parent link="chassis"/>
           <child link="dcam_back"/>
         </joint>
@@ -557,38 +557,73 @@
 
   <link name="dcam_back_depth"></link>
 
-        <!-- Hokuyo Laser -->
 
-        <!--joint name="hokuyo_joint" type="fixed">
-        <axis xyz="0 1 0" />
-        <origin xyz=".15 0 .1" rpy="0 0 0"/>
-        <parent link="chassis"/>
-        <child link="hokuyo"/>
-      </joint>
-
-      <link name="hokuyo">
-      <collision>
+  <!-- IMU -->
+  <!-- With breadboard -->
+  <link name="imu_link">
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-      <box size="0.1 0.1 0.1"/>
-    </geometry>
-  </collision>
+        <box size=".0168 .0212 .005"/>
+      </geometry>
+    </collision>
 
-  <visual>
-  <origin xyz="0 0 0" rpy="0 0 0"/>
-  <geometry>
-  <mesh filename="package://mo2bot_description/meshes/hokuyo.dae"/>
-</geometry>
-</visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size=".0168 .0212 .005"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
 
-<inertial>
-<mass value="1e-5" />
-<origin xyz="0 0 0" rpy="0 0 0"/>
-<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-</inertial>
-</link-->
+    <inertial>
+      <mass value="0.01" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <box_inertia m="0.01" x=".0168" y=".0212" z=".005" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="joint_imu" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0.1 0.1 0.1" rpy="0 0 1.57"/>
+    <parent link="chassis"/>
+    <child link="imu_link"/>
+  </joint>
 
 
+  <!-- LCD Display -->
+  <!--  -->
+  <link name="lcd_screen">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size=".150 .255 .005"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size=".150 .255 .005"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <inertial>
+      <mass value="${cameraMass}" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <box_inertia m="0.159" x=".150" y=".255" z=".005" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="joint_lcd_screen" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".26 0 0.13" rpy="0 1.57 0"/>
+    <parent link="chassis"/>
+    <child link="lcd_screen"/>
+  </joint>
 
 
 </robot>
