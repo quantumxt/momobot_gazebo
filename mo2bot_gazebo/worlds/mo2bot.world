@@ -1,13 +1,9 @@
 <?xml version="1.0" ?>
-<sdf version="1.4">
+<sdf version="1.5">
   <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
 
   <world name="default">
-    <!--include>
-      <uri>model://willowgarage</uri>
-    </include-->
-
-    <include>
+      <include>
       <uri>model://ground_plane</uri>
     </include>
 
@@ -23,6 +19,11 @@
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
+
+    <!-- Copy the willow garage directory in the local models directory to the .gazebo/models directory if it does not exist. -->
+    <include>
+      <uri>model://willowgarage</uri>
+    </include>
 
   </world>
 </sdf>
