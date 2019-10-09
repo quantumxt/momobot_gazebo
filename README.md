@@ -1,5 +1,4 @@
 # MOMOBot Gazebo
-Gazebo model of the momobot.
 ![MOMOBot Gazebo](assets/momo_gz_logo.png)
 
 ## Pre-requisite
