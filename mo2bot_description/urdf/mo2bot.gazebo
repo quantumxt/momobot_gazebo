@@ -63,7 +63,7 @@
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
-      <robotBaseFrame>base_link</robotBaseFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
       <publishOdomTF>true</publishOdomTF>
       <publishWheelTF>true</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
@@ -189,7 +189,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_sick_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/laser/scan</topicName>
+        <topicName>/laser_scan</topicName>
         <frameName>sick_l</frameName>
       </plugin>
     </sensor>

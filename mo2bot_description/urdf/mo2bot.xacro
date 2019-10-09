@@ -13,18 +13,8 @@
 
 
 
+
   <link name='base_link'>
-    <pose>0 0 0 0 0 0</pose>
-</link>
-
-<joint name="chassis_to_baseLink" type="fixed">
-  <axis xyz="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="chassis"/>
-  <origin xyz="0 0 0" rpy="0 0 0" />
-</joint>
-
-  <link name='chassis'>
     <inertial>
       <mass value="50.0"/>
       <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
@@ -45,14 +35,14 @@
       <!-- The chassis would be split into 2 parts: top & bottom-->
       <!--Top-->
 
-      <visual name='chassis_visual_top'>
+      <visual name='base_link_visual_top'>
         <origin xyz="0 0 0.22" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .52 .44"/>
         </geometry>
       </visual>
       <!--Bottom-->
-      <visual name='chassis_visual_bottom'>
+      <visual name='base_link_visual_bottom'>
         <origin xyz="-0.10 0 -0.2" rpy=" 0 0 0"/>
         <geometry>
           <box size=".30 .52 .4"/> <!--x,y,z-->
@@ -61,14 +51,14 @@
 
 
       <!--2 beams out-->
-      <visual name='chassis_visual_bottom_left'>
+      <visual name='base_link_visual_bottom_left'>
         <origin xyz="0 -0.22 -0.32" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .05 .05"/> <!--x,y,z-->
         </geometry>
       </visual>
 
-      <visual name='chassis_visual_bottom_right'>
+      <visual name='base_link_visual_bottom_right'>
         <origin xyz="0 0.22 -0.32" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .05 .05"/> <!--x,y,z-->
@@ -255,7 +245,7 @@
 
     <joint name="joint_trolleyW_front_left" type="continuous">
       <axis xyz="0 0 1"/>
-      <parent link="chassis"/>
+      <parent link="base_link"/>
       <child link="trolleyW_holder_front_left"/>
       <origin xyz="0.22 0.22 -0.345" rpy="0 0 0" />
     </joint>
@@ -355,7 +345,7 @@
 
         <joint name="joint_trolleyW_front_right" type="continuous">
           <axis xyz="0 0 1"/>
-          <parent link="chassis"/>
+          <parent link="base_link"/>
           <child link="trolleyW_holder_front_right"/>
           <origin xyz="0.22 -0.22 -0.345" rpy="0 0 0" />
         </joint>
@@ -394,10 +384,10 @@
 
       <!--Left wheel joint-->
       <joint type="continuous" name="left_wheel_joint">
-        <origin xyz="-0.124 -0.19 -.35" rpy="0 0 0"/>
+        <origin xyz="-0.124 0.19 -.35" rpy="0 0 0"/>
         <!--origin xyz="0.1 0.13 0" rpy="0 1.5707 1.5707"/-->
         <child link="left_wheel"/>
-        <parent link="chassis"/>
+        <parent link="base_link"/>
         <axis xyz="0 1 0" rpy="0 0 0"/>
         <limit effort="10000" velocity="1000"/>
         <joint_properties damping="1.0" friction="1.0"/>
@@ -430,10 +420,10 @@
 
         <!--Right Wheel Joint-->
         <joint type="continuous" name="right_wheel_joint">
-          <origin xyz="-0.124 0.19 -.35" rpy="0 0 0"/>
+          <origin xyz="-0.124 -0.19 -.35" rpy="0 0 0"/>
           <!--origin xyz="0.1 -0.13 0" rpy="0 1.5707 1.5707"/-->
           <child link="right_wheel"/>
-          <parent link="chassis"/>
+          <parent link="base_link"/>
           <axis xyz="0 1 0" rpy="0 0 0"/>
           <limit effort="10000" velocity="1000"/>
           <joint_properties damping="1.0" friction="1.0"/>
@@ -443,7 +433,7 @@
         <joint name="sick_joint" type="fixed">
           <axis xyz="0 1 0" />
           <origin xyz=".3 0 -.22" rpy="3.1416 0 0"/>
-          <parent link="chassis"/>
+          <parent link="base_link"/>
           <child link="sick_l"/>
         </joint>
 
@@ -509,7 +499,7 @@
         <joint name="camera_joint" type="fixed">
           <axis xyz="0 1 0" />
           <origin xyz="-.27 0 0.2" rpy="0 0 0"/>
-          <parent link="chassis"/>
+          <parent link="base_link"/>
           <child link="camera"/>
         </joint>
 
@@ -543,7 +533,7 @@
         <joint name="joint_dcam_back" type="fixed">
           <axis xyz="0 1 0" />
           <origin xyz=".27 0 0.32" rpy="0 0 0"/>
-          <parent link="chassis"/>
+          <parent link="base_link"/>
           <child link="dcam_back"/>
         </joint>
 
@@ -587,7 +577,7 @@
   <joint name="joint_imu" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.1 0.1 0.1" rpy="0 0 1.57"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="imu_link"/>
   </joint>
 
@@ -621,7 +611,7 @@
   <joint name="joint_lcd_screen" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz=".26 0 0.13" rpy="0 1.57 0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="lcd_screen"/>
   </joint>
 
