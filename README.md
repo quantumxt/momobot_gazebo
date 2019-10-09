@@ -1,5 +1,6 @@
-# momobot_gazebo
-Gazebo model of momobot.
+# MOMOBot Gazebo
+Gazebo model of the momobot.
+![MOMOBot Gazebo](assets/momo_gz_logo.png)
 
 ## Pre-requisite
 This model is tested on Gazebo 9, so it is assumed that Gazebo simulator is already installed.
