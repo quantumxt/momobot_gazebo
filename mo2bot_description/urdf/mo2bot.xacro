@@ -76,6 +76,8 @@
       </visual>
     </link>
 
+
+
     <!--Left trolley wheel-->
     <link name='trolleyW_wheel_front_left'>
       <collision name='collision_trolleyW_wheel_front_left'>
@@ -397,36 +399,36 @@
                 </inertial>
               </link>
 
-              <!--Camera-->
-              <link name="camera">
+              <!--Camera, Bottom back-->
+              <link name="cam_back_btm">
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
-                    <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+                    <box size=".03 .130 .033"/>
                   </geometry>
                 </collision>
 
                 <visual>
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
-                    <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+                    <box size=".03 .130 .033"/>
                   </geometry>
-                  <material name="green"/>
+                  <material name="black"/>
                 </visual>
 
                 <inertial>
                   <mass value="${cameraMass}" />
                   <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <box_inertia m="${cameraMass}" x="${cameraSize}" y="${cameraSize}" z="${cameraSize}" />
+                  <box_inertia m="${cameraMass}" x="0.03" y="0.130" z="0.033" />
                   <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
                 </inertial>
               </link>
 
               <joint name="camera_joint" type="fixed">
                 <axis xyz="0 1 0" />
-                <origin xyz="-.27 0 0.2" rpy="0 0 0"/>
+                <origin xyz="-.27 0 -0.1" rpy="0 0 3.142"/>
                 <parent link="base_link"/>
-                <child link="camera"/>
+                <child link="cam_back_btm"/>
               </joint>
 
 
