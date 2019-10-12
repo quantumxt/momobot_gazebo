@@ -20,15 +20,14 @@ $ catkin_make
 ```
 > **Note**: Please install the required depnedencies before compilation.
 ### Gazebo
-If the Willow Garage model could not be loaded or is not found, copy the *willowgarage* directory from the *mo2bot_gazebo/models/* directory to the *.gazebo* directory located in the */home/{user}/* directory.
+Copy all the models from the *mo2bot_gazebo/models* directory into the *.gazebo/models* directory. (Should be located in the */home/{user}/* directory.)
 ```
-$  cp -r willowgarage/ ~/.gazebo
+cp -r mo2bot_gazebo/models/* ~/.gazebo/models
 ```
-
 
 ## Usage
 ### Launching Gazebo World
-Launches Gazebo with the robot model in Willow Garage:
+Launches Gazebo with the robot model in the Compound World:
 ```
 $ roslaunch mo2bot_gazebo mo2bot_world.launch
 ```
