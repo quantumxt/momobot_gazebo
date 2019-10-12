@@ -27,7 +27,8 @@ cp -r mo2bot_gazebo/models/* ~/.gazebo/models
 
 ## Usage
 ### Launching Gazebo World
-Launches Gazebo with the robot model in the Compound World:
+![MOMOBot in compound world](assets/cpd_world.png)
+Launches Gazebo simulator with the robot model in the Compound World:
 ```
 $ roslaunch mo2bot_gazebo mo2bot_world.launch
 ```
