@@ -9,8 +9,7 @@
   <arg name="debug" default="false"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!--arg name="world_name" value="$(find mo2bot_gazebo)/worlds/turtlebot_playground.world"/-->
-    <arg name="world_name" value="$(find mo2bot_gazebo)/worlds/mo2bot.world"/>
+    <arg name="world_name" value="$(find mo2bot_gazebo)/worlds/cpd.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -22,17 +21,17 @@
   <param name="robot_description" command="$(find xacro)/xacro.py '$(find mo2bot_description)/urdf/mo2bot.xacro'"/>
 
   <node name="mo2bot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-   args="-urdf -param robot_description -model mo2bot -z 0.5" />  <!-- z arg is height offset from gnd-->
+    args="-urdf -param robot_description -model mo2bot -x 5.0 -z 0.5" />  <!-- z arg is height offset from gnd-->
 
-<!--Publish the TF-->
-   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-   respawn="false" output="screen">
-   </node>
-   <!--Rviz-->
-   <node name="rviz" pkg="rviz" type="rviz"/>
+    <!--Publish the TF-->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+      respawn="false" output="screen">
+    </node>
+    <!--Rviz-->
+    <node name="rviz" pkg="rviz" type="rviz"/>
 
-       <!-- Transform base_link to base_footprint-->
-       <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.42 0 0 0 /base_footprint /base_link 100"/>
+    <!-- Transform base_link to base_footprint-->
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.42 0 0 0 /base_footprint /base_link 100"/>
 
 
-</launch>
+  </launch>
