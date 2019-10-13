@@ -2,3 +2,6 @@
 	path = teb_local_planner
 	url = https://github.com/rst-tu-dortmund/teb_local_planner.git
 	branch = melodic-devel
+[submodule "image_pipeline"]
+	path = image_pipeline
+	url = https://github.com/ros-perception/image_pipeline
