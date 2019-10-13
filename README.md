@@ -38,3 +38,10 @@ Navigation with teb_local_planner plugin:
 ```
 $ roslaunch mo2bot_control nav.launch
 ```
+
+### Subscribed Topics
+> #### /cmd_vel (geometry_msgs/Twist)
+- To move the robot via velocity commands.
+
+> #### /lcd_img (sensor_msgs/Image)
+- Displays the image on the LCD screen.
