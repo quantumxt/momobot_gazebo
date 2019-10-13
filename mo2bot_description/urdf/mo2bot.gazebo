@@ -42,13 +42,6 @@
     <gazebo reference="trolleyW_holder_front_right">
       <material>Gazebo/Grey</material>
     </gazebo>
-    <!--gazebo reference="caster_left">
-      <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="caster_right">
-      <material>Gazebo/Grey</material>
-    </gazebo-->
 
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -67,7 +60,6 @@
       <publishOdomTF>true</publishOdomTF>
       <publishWheelTF>true</publishWheelTF>
       <publishWheelJointState>true</publishWheelJointState>
-
     </plugin>
   </gazebo>
 
@@ -104,18 +96,79 @@
     </sensor>
   </gazebo>
 
-<!-- Depth camera, back-->
 
-  <gazebo reference="dcam_back">
+<!-- ZED stereo camera, FOV:110 degrees max -->
+
+<gazebo reference="dcam_front">
+  <material>Gazebo/Grey</material>
+  <sensor type="multicamera" name="stereo_camera">
+    <update_rate>60.0</update_rate>
+    <camera name="zed_left">
+      <pose>0 0.06 0 0 0 0</pose>
+      <horizontal_fov>1.919862</horizontal_fov>
+      <image>
+        <width>1280</width>
+        <height>720</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>1</near>
+        <far>15</far>
+      </clip>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.007</stddev>
+      </noise>
+    </camera>
+    <camera name="zed_right">
+      <pose>0 -0.06 0 0 0 0</pose>
+      <horizontal_fov>1.919862</horizontal_fov>
+      <image>
+        <width>1280</width>
+        <height>720</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>1</near>
+        <far>15</far>
+      </clip>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.007</stddev>
+      </noise>
+    </camera>
+    <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate>
+      <cameraName>zed_cam</cameraName>
+      <imageTopicName>image_raw</imageTopicName>
+      <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      <frameName>dcam_front_depth</frameName>
+      <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
+      <hackBaseline>0.07</hackBaseline>
+      <distortionK1>0.0</distortionK1>
+      <distortionK2>0.0</distortionK2>
+      <distortionK3>0.0</distortionK3>
+      <distortionT1>0.0</distortionT1>
+      <distortionT2>0.0</distortionT2>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<!-- Depth camera, front [FOV: 110 degrees]-->
+
+  <!--gazebo reference="dcam_front">
     <material>Gazebo/Grey</material>
-    <sensor type="depth" name="dcam_back_gazebo">
+    <sensor type="depth" name="dcam_front_gazebo">
       <pose>0 0 0 0 0 0</pose>
 
       <visualize>true</visualize>
 
       <update_rate>60.0</update_rate>
-      <camera name="head_dcam_back">
-        <horizontal_fov>1.3962634</horizontal_fov>
+      <camera name="zed_dcam_front">
+        <horizontal_fov>1.919862</horizontal_fov>
         <image>
           <width>2560</width>
           <height>720</height>
@@ -129,17 +182,17 @@
 
       <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
           <baseline>0.2</baseline>
-          <alwaysOn>true</alwaysOn>
+          <alwaysOn>true</alwaysOn-->
           <!-- Keep this zero, update_rate in the parent <sensor> tag
             will control the frame rate. -->
-          <updateRate>0.0</updateRate>
+          <!--updateRate>0.0</updateRate>
           <cameraName>camera_ir</cameraName>
-          <imageTopicName>/cameraD/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/cameraD/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/cameraD/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/cameraD/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/cameraD/depth/points</pointCloudTopicName>
-          <frameName>dcam_back_depth</frameName>
+          <imageTopicName>/zed/color/image_raw</imageTopicName>
+          <cameraInfoTopicName>/zed/color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>/zed/depth/image_raw</depthImageTopicName>
+          <depthImageCameraInfoTopicName>/zed/depth/camera_info</depthImageCameraInfoTopicName>
+          <pointCloudTopicName>/zed/depth/points</pointCloudTopicName>
+          <frameName>zed_front_depth</frameName>
           <pointCloudCutoff>0.5</pointCloudCutoff>
           <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
           <distortionK1>0</distortionK1>
@@ -155,7 +208,7 @@
         </plugin>
 
     </sensor>
-  </gazebo>
+  </gazebo-->
 
   <!-- SICK -->
   <gazebo reference="sick_l">
@@ -196,7 +249,7 @@
   </gazebo>
 
   <!--LCD Display -->
-  <gazebo reference="display_screen_link">
+  <gazebo reference="lcd_screen">
     <material>Gazebo/Black</material>
 
   <visual>
@@ -229,42 +282,5 @@
      <pose>0 0 0 0 0 0</pose>
    </sensor>
  </gazebo>
-
-  <!-- hokuyo -->
-  <!--gazebo reference="hokuyo">
-    <sensor type="gpu_ray" name="head_hokuyo_sensor">
-      <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
-      <update_rate>40</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>720</samples>
-            <resolution>1</resolution>
-            <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.10</min>
-          <max>30.0</max>
-          <resolution>0.01</resolution>
-        </range>
-        <noise>
-          <type>gaussian</type-->
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
-          <!--mean>0.0</mean>
-          <stddev>0.01</stddev>
-        </noise>
-      </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/mybot/laser/scan</topicName>
-        <frameName>hokuyo</frameName>
-      </plugin>
-    </sensor>
-  </gazebo-->
 
 </robot>

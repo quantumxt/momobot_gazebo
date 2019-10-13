@@ -432,9 +432,9 @@
               </joint>
 
 
-              <!-- Depth Camera, Back -->
+              <!-- Depth Camera, Front -->
               <!-- ZED Cam https://www.stereolabs.com/zed/ -->
-              <link name="dcam_back">
+              <link name="dcam_front">
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
@@ -451,29 +451,29 @@
                 </visual>
 
                 <inertial>
-                  <mass value="${cameraMass}" />
+                  <mass value="0.159" />
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <box_inertia m="0.159" x=".03" y=".175" z=".033" />
                   <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
                 </inertial>
               </link>
 
-              <joint name="joint_dcam_back" type="fixed">
+              <joint name="joint_dcam_front" type="fixed">
                 <axis xyz="0 1 0" />
                 <origin xyz=".27 0 0.32" rpy="0 0 0"/>
                 <parent link="base_link"/>
-                <child link="dcam_back"/>
+                <child link="dcam_front"/>
               </joint>
 
               <!--Camera to Depth link -->
 
-              <joint name="joint_dcam_back_depth" type="fixed">
+              <joint name="joint_dcam_front_depth" type="fixed">
                 <origin xyz="0 0 0" rpy="${-3.1416/2} 0 ${-3.1416/2} "/>
-                <parent link="dcam_back"/>
-                <child link="dcam_back_depth"/>
+                <parent link="dcam_front"/>
+                <child link="dcam_front_depth"/>
               </joint>
 
-              <link name="dcam_back_depth"></link>
+              <link name="dcam_front_depth"></link>
 
 
               <!-- IMU -->
@@ -515,14 +515,14 @@
                 <collision>
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
-                    <box size=".150 .255 .005"/>
+                    <box size=".255 .150 .005"/>
                   </geometry>
                 </collision>
 
                 <visual>
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
-                    <box size=".150 .255 .005"/>
+                    <box size=".255 .150 .005"/>
                   </geometry>
                   <material name="grey"/>
                 </visual>
@@ -530,14 +530,14 @@
                 <inertial>
                   <mass value="0.2" />
                   <origin xyz="0 0 0" rpy="0 0 0"/>
-                  <box_inertia m="0.159" x=".150" y=".255" z=".005" />
+                  <box_inertia m="0.159" x=".255" y=".150" z=".005" />
                   <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
                 </inertial>
               </link>
 
               <joint name="joint_lcd_screen" type="fixed">
                 <axis xyz="0 1 0" />
-                <origin xyz=".26 0 0.13" rpy="0 1.57 0"/>
+                <origin xyz=".26 0 0.13" rpy="1.57 0 1.57"/>
                 <parent link="base_link"/>
                 <child link="lcd_screen"/>
               </joint>
