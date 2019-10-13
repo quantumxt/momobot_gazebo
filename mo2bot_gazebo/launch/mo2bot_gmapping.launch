@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+
+   		<!-- data source to integrate (PointCloud2) -->
+   		<remap from="scan" to="/laser_scan" />
+
+   	</node>
+</launch>

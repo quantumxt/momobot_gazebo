@@ -27,18 +27,19 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
       respawn="false" output="screen">
     </node>
+    
     <!--Rviz-->
     <node name="rviz" pkg="rviz" type="rviz"/>
 
     <!-- Transform base_link to base_footprint-->
     <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_link" args="0 0 0.42 0 0 0 /base_footprint /base_link 100"/>
 
-<!-- Merge stereo camera images-->
-  <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" ns="zed_cam" >
-  </node>
+    <!-- Merge stereo camera images-->
+    <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" ns="zed_cam" >
+    </node>
 
-  <node pkg="image_publisher" type="image_publisher" name="image_publisher"
-          args="$(find mo2bot_description)/a.png" >
+    <node pkg="image_publisher" type="image_publisher" name="image_publisher"
+      args="$(find mo2bot_description)/a.png" >
       <param name="flip_horizontal" value="false" />
       <param name="flip_vertical" value="false" />
       <!--param name="frame_id" value="my_camera" /-->

@@ -24,7 +24,7 @@
 
   <!--Moment of Inertia: https://en.wikipedia.org/wiki/List_of_moments_of_inertia, checkout 3D inertial tensor -->
 
-  <link name='base_link'>
+  <link name="base_link">
     <inertial>
       <mass value="50.0"/>
       <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
@@ -36,7 +36,7 @@
         />
       </inertial>
 
-      <collision name='collision'>
+      <collision name="collision">
         <geometry>
           <box size=".52 .52 .84"/>
         </geometry>
@@ -45,14 +45,14 @@
       <!-- The chassis would be split into 2 parts: top & bottom-->
       <!--Top-->
 
-      <visual name='base_link_visual_top'>
+      <visual name="base_link_visual_top">
         <origin xyz="0 0 0.22" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .52 .44"/>
         </geometry>
       </visual>
       <!--Bottom-->
-      <visual name='base_link_visual_bottom'>
+      <visual name="base_link_visual_bottom">
         <origin xyz="-0.10 0 -0.2" rpy=" 0 0 0"/>
         <geometry>
           <box size=".30 .52 .4"/> <!--x,y,z-->
@@ -61,14 +61,14 @@
 
 
       <!--2 beams out-->
-      <visual name='base_link_visual_bottom_left'>
+      <visual name="base_link_visual_bottom_left">
         <origin xyz="0 -0.22 -0.32" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .05 .05"/> <!--x,y,z-->
         </geometry>
       </visual>
 
-      <visual name='base_link_visual_bottom_right'>
+      <visual name="base_link_visual_bottom_right">
         <origin xyz="0 0.22 -0.32" rpy=" 0 0 0"/>
         <geometry>
           <box size=".52 .05 .05"/> <!--x,y,z-->
@@ -76,11 +76,9 @@
       </visual>
     </link>
 
-
-
     <!--Left trolley wheel-->
-    <link name='trolleyW_wheel_front_left'>
-      <collision name='collision_trolleyW_wheel_front_left'>
+    <link name="trolleyW_wheel_front_left">
+      <collision name="collision_trolleyW_wheel_front_left">
         <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
         <geometry>
           <cylinder radius="${wheel_t_radius}" length="${wheel_t_length}"/>
@@ -97,7 +95,7 @@
         </surface>
       </collision>
 
-      <visual name='visual_trolleyW_wheel_front_left'>
+      <visual name="visual_trolleyW_wheel_front_left">
         <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
         <geometry>
           <cylinder radius="${wheel_t_radius}" length="${wheel_t_length}"/>
@@ -124,8 +122,8 @@
       </joint>
 
       <!--Trolley wheel holder attachment-->
-      <link name='trolleyW_holder_front_left'>
-        <collision name='collision_trolleyW_holder_front_left'>
+      <link name="trolleyW_holder_front_left">
+        <collision name="collision_trolleyW_holder_front_left">
           <origin xyz="-0.03 0 -0.0075" rpy=" 0 0 0"/>
           <geometry>
             <box size=".1 .03 .015"/>
@@ -142,7 +140,7 @@
           </surface>
         </collision>
 
-        <visual name='visual_trolleyW_holderHorizontal_front_left'>
+        <visual name="visual_trolleyW_holderHorizontal_front_left">
           <origin xyz="-0.03 0 -0.0075" rpy=" 0 0 0"/>
           <geometry>
             <box size=".1 .03 .015"/>
@@ -150,7 +148,7 @@
           <material name="grey"/>
         </visual>
 
-        <visual name='visual_trolleyW_holderVertical_front_left'>
+        <visual name="visual_trolleyW_holderVertical_front_left">
           <origin xyz="-0.04 0 -0.03" rpy=" 0 0 0"/>
           <geometry>
             <box size=".015 .03 .06"/>
@@ -179,8 +177,8 @@
 
 
         <!--Right trolley wheel-->
-        <link name='trolleyW_wheel_front_right'>
-          <collision name='collision_trolleyW_wheel_front_right'>
+        <link name="trolleyW_wheel_front_right">
+          <collision name="collision_trolleyW_wheel_front_right">
             <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
             <geometry>
               <cylinder radius="${wheel_t_radius}" length="${wheel_t_length}"/>
@@ -197,7 +195,7 @@
             </surface>
           </collision>
 
-          <visual name='visual_trolleyW_wheel_front_right'>
+          <visual name="visual_trolleyW_wheel_front_right">
             <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
             <geometry>
               <cylinder radius="${wheel_t_radius}" length="${wheel_t_length}"/>
@@ -224,8 +222,8 @@
           </joint>
 
           <!--Trolley wheel holder attachment-->
-          <link name='trolleyW_holder_front_right'>
-            <collision name='collision_trolleyW_holder_front_right'>
+          <link name="trolleyW_holder_front_right">
+            <collision name="collision_trolleyW_holder_front_right">
               <origin xyz="-0.03 0 -0.0075" rpy=" 0 0 0"/>
               <geometry>
                 <box size=".1 .03 .015"/>
@@ -242,7 +240,7 @@
               </surface>
             </collision>
 
-            <visual name='visual_trolleyW_holderHorizontal_front_right'>
+            <visual name="visual_trolleyW_holderHorizontal_front_right">
               <origin xyz="-0.03 0 -0.0075" rpy=" 0 0 0"/>
               <geometry>
                 <box size=".1 .03 .015"/>
@@ -250,7 +248,7 @@
               <material name="grey"/>
             </visual>
 
-            <visual name='visual_trolleyW_holderVertical_front_right'>
+            <visual name="visual_trolleyW_holderVertical_front_right">
               <origin xyz="-0.04 0 -0.03" rpy=" 0 0 0"/>
               <geometry>
                 <box size=".015 .03 .06"/>
@@ -376,7 +374,7 @@
                   </geometry>
                 </collision>
                 <!--Top-->
-                <visual name='sick_visual_top'>
+                <visual name="sick_visual_top">
                   <origin xyz="0 0 0" rpy="0 0 0"/>
                   <geometry>
                     <cylinder radius="0.0525" length="0.03"/>
@@ -384,7 +382,7 @@
                   <material name="grey"/>
                 </visual>
                 <!--Body-->
-                <visual name='sick_visual_body'>
+                <visual name="sick_visual_body">
                   <origin xyz="0 0 -0.067" rpy="0 0 0"/>
                   <geometry>
                     <box size="0.105 0.102 0.1"/>

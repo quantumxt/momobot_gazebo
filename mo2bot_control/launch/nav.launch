@@ -30,7 +30,7 @@
 <!--node pkg="robot_pose_publisher" type="robot_pose_publisher" name="robot_pose_publisher"/-->
 
 <!-- Run map server -->
-<node pkg="map_server" type="map_server" name="map_server" args="$(find mo2bot_control)/maps/willow.yaml"/>
+<node pkg="map_server" type="map_server" name="map_server" args="$(find mo2bot_control)/maps/cpd.yaml"/>
 
 <!-- Localisation -->
 <node pkg="amcl" type="amcl" name="amcl" >
