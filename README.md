@@ -14,6 +14,10 @@ $ rosdep install teb_local_planner
 ## Installation
 ### ROS
 Git clone the repository & place the directories in your workspace (E.g. catkin_ws).
+```
+$ git clone --recurse-submodules -j8 https://github.com/1487quantum/momobot_gazebo.git
+```
+> Note: -j8 fetches up to 8 submodules at a time in parallel
 Compile the workspace via *catkin_make* and the packages are ready to use!
 ```
 $ catkin_make
