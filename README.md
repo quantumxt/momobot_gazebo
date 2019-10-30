@@ -4,13 +4,6 @@
 ## Pre-requisite
 This model is tested on Gazebo 9, so it is assumed that Gazebo simulator is already installed.
 
-## Dependencies
-#### Teb local planner
-A plugin to the base_local_planner of the 2D navigation stack, install the relevant dependencies via *rosdep*.
-```
-$ rosdep install teb_local_planner
-```
-
 ## Installation
 ### ROS
 Git clone the repository & place the directories in your workspace (E.g. catkin_ws).
