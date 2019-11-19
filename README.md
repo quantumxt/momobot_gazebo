@@ -23,6 +23,14 @@ Copy all the models from the *mo2bot_gazebo/models* directory into the *.gazebo/
 cp -r mo2bot_gazebo/models/* ~/.gazebo/models
 ```
 
+## Sensor
+![MOMOBot in compound world](assets/mogz1.png)
+
+The IMU is placed inside the body of the model.
+
+![MOMOBot in compound world](assets/mogz2.png)
+
+
 ## Usage
 ### Launching Gazebo World
 ![MOMOBot in compound world](assets/cpd_world.png)
