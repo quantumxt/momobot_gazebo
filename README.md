@@ -24,11 +24,11 @@ cp -r mo2bot_gazebo/models/* ~/.gazebo/models
 ```
 
 ## Sensor
-![MOMOBot in compound world](assets/mogz1.png)
+![MOMOBot Sensor placement - Front](assets/mogz1.png)
 
 The IMU is placed inside the body of the model.
 
-![MOMOBot in compound world](assets/mogz2.png)
+![MOMOBot Sensor placement - Back](assets/mogz2.png)
 
 
 ## Usage
@@ -51,3 +51,7 @@ $ roslaunch mo2bot_control nav.launch
 
 > #### /lcd_img (sensor_msgs/Image)
 - Displays the image on the LCD screen.
+
+## Rosgraph
+![MOMOBot Gazebo rosgraph](assets/rosgraph.png)
+
