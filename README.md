@@ -2,7 +2,7 @@
 ![MOMOBot Gazebo](assets/momo_gz_logo.png)
 
 ## Pre-requisite
-This model is tested on Gazebo 9, so it is assumed that Gazebo simulator is already installed.
+This model is tested on Gazebo 9, so it is assumed that Gazebo simulator is already installed. Also ensure that ROS Navigation Stack & [teb_local_planner package](https://github.com/rst-tu-dortmund/teb_local_planner) has been installed.
 
 ## Installation
 ### ROS
@@ -16,7 +16,7 @@ Compile the workspace via *catkin_make* and the packages are ready to use!
 ```
 $ catkin_make
 ```
-> **Note**: Please install the required depnedencies before compilation.
+> **Note**: Please install the required dependencies before compilation.
 ### Gazebo
 Copy all the models from the *mo2bot_gazebo/models* directory into the *.gazebo/models* directory. (Should be located in the */home/{user}/* directory.)
 ```
