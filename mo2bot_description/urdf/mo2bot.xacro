@@ -25,6 +25,15 @@
   <!--Moment of Inertia: https://en.wikipedia.org/wiki/List_of_moments_of_inertia, checkout 3D inertial tensor -->
 
   <link name="base_link">
+</link>
+<joint name="baselink_to_basefootprint" type="fixed">
+  <axis xyz="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_footprint"/>
+  <origin xyz="0 0 0" rpy="0 0 0" />
+</joint>
+
+  <link name="base_footprint">
     <inertial>
       <mass value="50.0"/>
       <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
