@@ -45,6 +45,17 @@ Navigation with teb_local_planner plugin:
 $ roslaunch mo2bot_control nav.launch
 ```
 
+### rtabmap
+To perform 3D SLAM using the images provided by the stereo camera. Ensure that the rtabmap package is installed before launching the rtab_map roslaunch:
+```
+$ sudo apt-get install ros-melodic-rtabmap-ros
+```
+To launch _rtabmap_ with the rtabmap visualisation GUI:
+```
+$ roslaunch mo2bot_control rtab_map.launch
+```
+> More information on rtabmap could be found [here](https://wiki.ros.org/rtabmap_ros).
+
 ### Subscribed Topics
 > #### /cmd_vel (geometry_msgs/Twist)
 - To move the robot via velocity commands.
