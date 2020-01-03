@@ -61,7 +61,7 @@
     <odometrySource>world</odometrySource>
     <robotBaseFrame>base_footprint</robotBaseFrame>
     <publishTF>true</publishTF>
-    <publishOdomTF>true</publishOdomTF>
+    <publishOdomTf>true</publishOdomTf>
     <publishWheelTF>true</publishWheelTF>
     <publishWheelJointState>true</publishWheelJointState>
     <rosDebugLevel>na</rosDebugLevel>
