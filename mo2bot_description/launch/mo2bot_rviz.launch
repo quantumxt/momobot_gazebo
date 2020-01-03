@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find mo2bot_description)/urdf/mo2bot.xacro'"/>
+  <param name="robot_description" command="xacro --inorder '$(find mo2bot_description)/urdf/mo2bot.xacro'"/>
+
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -9,7 +10,7 @@
   </node>
 
   <!-- Combine joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
   <!-- Show in Rviz   -->
   <node name="rviz" pkg="rviz" type="rviz"/>
