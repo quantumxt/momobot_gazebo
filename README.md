@@ -48,6 +48,8 @@ $ roslaunch mo2bot_control nav.launch
 ```
 
 ### rtabmap
+> More information on rtabmap could be found [here](https://wiki.ros.org/rtabmap_ros).
+
 To perform 3D SLAM using the images provided by the stereo camera. Ensure that the rtabmap package is installed before launching the rtab_map roslaunch:
 ```
 $ sudo apt-get install ros-melodic-rtabmap-ros
@@ -56,7 +58,10 @@ To launch _rtabmap_ with the rtabmap visualisation GUI:
 ```
 $ roslaunch mo2bot_control rtab_map.launch
 ```
-> More information on rtabmap could be found [here](https://wiki.ros.org/rtabmap_ros).
+To disable rtabmap_viz GUI from running, set the argument to false in the rtab_map.launch (Line 20).
+```
+  <arg name="rtabmapviz"              default="false" />
+```
 
 ### Subscribed Topics
 > #### /cmd_vel (geometry_msgs/Twist)
