@@ -40,6 +40,8 @@ $ roslaunch mo2bot_gazebo mo2bot_world.launch
 ```
 
 ### Navigation
+> Ensure that the _[teb_local_planner](https://wiki.ros.org/teb_local_planner)_ plugin is installed beforehand.
+
 Navigation with teb_local_planner plugin:
 ```
 $ roslaunch mo2bot_control nav.launch
