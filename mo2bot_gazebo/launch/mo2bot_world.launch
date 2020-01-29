@@ -18,8 +18,8 @@
   </include>
 
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find mo2bot_description)/urdf/mo2bot.xacro'"/>
-
+  <param name="robot_description" command="xacro --inorder '$(find mo2bot_description)/urdf/mo2bot.xacro'"/>
+  
   <node name="mo2bot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
     args="-urdf -param robot_description -model mo2bot -x 5.0 -z 0.5" />  <!-- z arg is height offset from gnd-->
 
